@@ -1,0 +1,129 @@
+<nb-card size="large">
+  <div class="row">
+    <div class="col-12">
+        <nb-tabset fullWidth [nbSpinner]="loading" nbSpinnerStatus="primary">
+          <nb-tab tabTitle="PATIENT/EMPLOYER INFO">
+            <nb-card class="car-container">
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-6">
+                    Patient Name : {{ PatientDetailSummary?.patientName }}
+                  </div>
+                  <div class="col-6">
+                    Street Address : {{ PatientDetailSummary?.streetAddress }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    City : {{ PatientDetailSummary?.city }}
+                  </div>
+                  <div class="col-6">
+                    State : {{ PatientDetailSummary?.state }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Zip : {{ PatientDetailSummary?.zipCode }}
+                  </div>
+                  <div class="col-6">
+                    Country : {{ PatientDetailSummary?.country }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Race : {{ PatientDetailSummary?.race }}
+                  </div>
+                  <div class="col-6">
+                    Relegion : {{ PatientDetailSummary?.religion }}
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>     
+          </nb-tab>
+
+
+
+          <nb-tab tabTitle="SERVICE INFORMATION">
+            <nb-card class="car-container">
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-6">
+                    Diagnosis : {{ PatientDetailSummary?.diagnosisDescription }}
+                  </div>
+                  <div class="col-6">
+                    Diagnosis Type : {{ PatientDetailSummary?.diagnosisType }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Admit Source : {{ PatientDetailSummary?.admitSource }}
+                  </div>
+                  <div class="col-6">
+                    Admit Type : {{ PatientDetailSummary?.admissionType }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Admitting Phisician : {{ PatientDetailSummary?.admittingDoctor }}
+                  </div>
+                  <div class="col-6">
+                    Attending Physician : {{ PatientDetailSummary?.attendingDoctor }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Patient Class : {{ PatientDetailSummary?.patientClass }}
+                  </div>
+                  <div class="col-6">
+                    Patient Type : {{ PatientDetailSummary?.patientType }}
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </nb-tab>
+
+
+          <nb-tab tabTitle="PRIMARY INSURANCE INFO">
+            <nb-card class="car-container">
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-6">
+                    Prim. Ins. Plan Name : {{ PatientDetailSummary?.primInsurPlanName }}
+                  </div>
+                  <div class="col-6">
+                    Prim. Ins. Address : {{ PatientDetailSummary?.primInsurAddress }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    City : {{ PatientDetailSummary?.primInsurCity }}
+                  </div>
+                  <div class="col-6">
+                    State : {{ PatientDetailSummary?.primInsurState }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Zip : {{ PatientDetailSummary?.primInsurZIPCode }}
+                  </div>
+                  <div class="col-6">
+                    Policy Number : {{ PatientDetailSummary?.primPolicyNumber }}
+                  </div>
+                </div>
+                <div class="row collumn-padding">
+                  <div class="col-6">
+                    Prim. Ins. Name : {{ PatientDetailSummary?.primInsuredName }}
+                  </div>
+                  <div class="col-6">
+                    Prim. Ins. Sex : {{ PatientDetailSummary?.primInsuredSex }}
+                  </div>
+                </div>
+              </nb-card-body>
+            </nb-card>
+          </nb-tab>
+        </nb-tabset>
+
+    </div>
+  </div>
+</nb-card>
+

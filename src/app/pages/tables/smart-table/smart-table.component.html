@@ -1,0 +1,81 @@
+<div class="row" >
+  <div class="col-md-12">
+    <nb-card class="inline-form-card" >
+      <nb-card-body>
+
+          <form (submit)="onSubmit(inputAccount.value, AdmitFrom.value, AdmitTo.value, PayerCode.value, FinancialClass.value, FirstName.value, LastName.value)" class="form-inline" >
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputAccount" class="label">Account Noumber</label>
+                <input type="text" #inputAccount nbInput fullWidth id="inputAccount" placeholder="Account Number">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputAdmitfrom" class="label">Admit Date From</label>
+                <input nbInput #AdmitFrom
+                placeholder="Admit Date From"
+                [nbDatepicker]="formpicker">  
+                <nb-datepicker #formpicker></nb-datepicker>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputAdmitTo" class="label">Admit Date To</label>
+                <input nbInput #AdmitTo
+                placeholder="Admit Date To"
+                [nbDatepicker]="topicker">
+                <nb-datepicker #topicker></nb-datepicker>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputPayerCode" class="label">Payer Code</label>
+                <input type="text" #PayerCode nbInput fullWidth id="inputPayerCode" placeholder="Payer Code">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputFinancial" class="label">Financial Class</label>
+                <input type="text" #FinancialClass nbInput fullWidth id="inputFinancial" placeholder="Financial Class">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputFirstName" class="label">First Name</label>
+                <input type="text" #FirstName nbInput fullWidth id="inputFirstName" placeholder="First Name">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputLastName" class="label">Last Name</label>
+                <input type="text" #LastName nbInput fullWidth id="inputLastName" placeholder="Last Name">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label for="inputLastName" class="label"></label>
+            <button class="button" style="background-color:skyblue" type="submit" nbButton>Search</button>
+          </div>
+        </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+<nb-card >
+  <nb-card-header>
+    Patient Table
+  </nb-card-header>
+
+  <nb-card-body >
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onUserRowSelect($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>
