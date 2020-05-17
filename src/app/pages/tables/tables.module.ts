@@ -20,6 +20,8 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './tables-routing.module';
 import { FsIconComponent } from './tree-grid/tree-grid.component';
 import { FormsModule as ngFormsModule } from '@angular/forms';
+import {NgxNotificationsModule} from '@stanvanheumen/ngx-notifications';
+import {NgxTranslationsModule} from '@stanvanheumen/ngx-translations';
 
 
 
@@ -44,6 +46,8 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     TablesRoutingModule,
     Ng2SmartTableModule,
     ngFormsModule,
+    NgxNotificationsModule.forRoot(),
+    NgxTranslationsModule.forRoot(),
   ],
   declarations: [
     ...routedComponents,

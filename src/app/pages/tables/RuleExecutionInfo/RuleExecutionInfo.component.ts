@@ -1,8 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
-import { takeWhile } from 'rxjs/operators';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { LocalDataSource } from 'ng2-smart-table';
 
-import { UserActivityData, UserActive } from '../../../@core/data/user-activity';
 
 
 /**
@@ -13,35 +11,64 @@ import { UserActivityData, UserActive } from '../../../@core/data/user-activity'
   styleUrls: ['RuleExecutionInfo.component.scss'],
   templateUrl: 'RuleExecutionInfo.component.html',
 })
-export class RuleExecutionInfoComponent implements OnDestroy {
-    private alive = true;
+export class RuleExecutionInfoComponent implements OnInit, OnDestroy {
 
-    userActivity: UserActive[] = [];
-    type = 'month';
-    types = ['week', 'month', 'year'];
-    currentTheme: string;
   
-    constructor(private themeService: NbThemeService,
-                private userActivityService: UserActivityData) {
-      this.themeService.getJsTheme()
-        .pipe(takeWhile(() => this.alive))
-        .subscribe(theme => {
-          this.currentTheme = theme.name;
-      });
+  settings = {
+    actions:false,
+    hideSubHeader: true,
+    columns: {
+      RuleExecutionErrorId: {
+        title: 'ID',
+        type: 'number',
+      },
+      RuleErrorDescription: {
+        title: 'Rule Description',
+        type: 'string',
+      },
+      RuleType: {
+        title: 'Error Type',
+        type: 'html',
+        rowClassFunction: (RuleType) => {
+          debugger;
+          if (RuleType === 1) {
+            return 'highlightOwner';
+          } else if (RuleType === 2) {
+            return 'highlightOwner2';
+          }
+          return '';
+        }
+      },
+    },
+  };
   
-      this.getUserActivity(this.type);
-    }
   
-    getUserActivity(period: string) {
-      this.userActivityService.getUserActivityData(period)
-        .pipe(takeWhile(() => this.alive))
-        .subscribe(userActivityData => {
-          this.userActivity = userActivityData;
-        });
-    }
-  
-    ngOnDestroy() {
-      this.alive = false;
-    }
+  source: LocalDataSource = new LocalDataSource();
+
+  ngOnInit(): void {
+    this.source.load(this.data);
   }
+
+    ngOnDestroy() {
+    }
+
+    data = [
+      {
+        RuleExecutionErrorId: 1,
+        RuleErrorDescription: 'Leanne Graham',
+        RuleType: 1
+      },
+      {
+        RuleExecutionErrorId: 2,
+        RuleErrorDescription: 'Ervin Howell',
+        RuleType: 2
+      },
+      {
+        RuleExecutionErrorId: 3,
+        RuleErrorDescription: 'Clementine Bauch',
+        RuleType: 3
+      }
+   ];
+  
+}
   

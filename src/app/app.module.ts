@@ -24,6 +24,10 @@ import {
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {CommonPatientDetailService} from './@core/mock/common-patients-detail-service'; 
+import {EventProxyService} from './@core/mock/eventProxy.service';
+import {NgxNotificationsModule} from '@stanvanheumen/ngx-notifications';
+import {NgxTranslationsModule} from '@stanvanheumen/ngx-translations';
+
 
 
 
@@ -37,6 +41,8 @@ import {CommonPatientDetailService} from './@core/mock/common-patients-detail-se
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxNotificationsModule.forRoot(),
+    NgxTranslationsModule.forRoot(),
     NbSidebarModule.forRoot(),
     NbSpinnerModule,
     NbMenuModule.forRoot(),
@@ -53,7 +59,7 @@ import {CommonPatientDetailService} from './@core/mock/common-patients-detail-se
     NbLayoutModule,
     NbEvaIconsModule,
   ],
-  providers: [CommonPatientDetailService],
+  providers: [CommonPatientDetailService, EventProxyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {

@@ -18,4 +18,8 @@ export class CommonPatientDetailService {
     clearSession(): void {
         localStorage.clear();
     }
+
+    removeItem(key: string): void {
+        localStorage.removeItem(key);
+    }
 }
